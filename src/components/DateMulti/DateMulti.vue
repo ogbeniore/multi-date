@@ -1,0 +1,61 @@
+<template>
+<div>
+  <fieldset
+    id="dob"
+    class="k__date__multi__fieldset"
+    v-click-outside="handleClickOutside"
+    :class="{'active': isDirty, 'valid': dateValid, 'error': (!dateValid && touched) || (!dateValid && isComplete) || isFuture || isTooOld}"
+    @click="focusInput">
+    <label>{{placeholder}}</label>
+    <div class="k__date__multi__group">
+      <input
+        id="month"
+        type="tel"
+        class="k__date__multi__input"
+        placeholder="MM"
+        v-model="month"
+        ref="month"
+        :disabled="disabled"
+        @focus="focus = true"
+        @keypress="monthMask"
+        @keyup="mask($event,'month')">
+      <span class="k__date__multi__slash"/>
+      <input
+        id="day"
+        type="tel"
+        class="k__date__multi__input"
+        placeholder="DD"
+        v-model="day"
+        ref="day"
+        :disabled="disabled"
+        @focus="focus = true"
+        @keypress="dayMask"
+        @keyup="mask($event,'month')">
+      <span class="k__date__multi__slash"/>
+      <input
+        id="year"
+        type="tel"
+        class="k__date__multi__input --year"
+        placeholder="YYYY"
+        v-model="year"
+        ref="year"
+        :disabled="disabled"
+        @focus="focus = true"
+        @keypress="yearMask"
+        @keyup="mask($event,'day')">
+    </div>
+  </fieldset>
+    <span class="k__date__multi__error" v-if="isFuture && isComplete">
+      Please check if you were born in the future.
+    </span>
+    <span class="k__date__multi__error" v-else-if="isTooOld && isComplete">
+      Please check the date of birth.
+    </span>
+    <span class="k__date__multi__error" v-else-if="(!dateValid && isComplete) || (!dateValid && touched)">
+      Please enter a valid date
+    </span>
+</div>
+</template>
+
+<script src="./DateMulti.js"></script>
+<style lang="scss" scoped src="./DateMulti.scss"></style>
