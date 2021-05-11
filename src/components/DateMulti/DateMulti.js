@@ -74,7 +74,7 @@ export default {
       }
     },
     value(val) {
-      if (val !== this.innerValue) {
+      if (val) {
         const dateArray = val.split('/')
         this.month = dateArray[0]
         this.day = dateArray[1]
@@ -98,19 +98,15 @@ export default {
   },
   methods: {
     mask(event, next) {
-      const isBackspace = event && event.code === 'Backspace';
       const value = event.target.value;
-      if (isBackspace ) {
-        if(!value && this.count) {
-          this.$refs[next].focus()
-          this.count = 0
-        } else if (!value){
-          this.count = 1
-        }
+      if(!value && this.count) {
+        this.$refs[next].focus()
+        this.count = 0
+      } else if (!value){
+        this.count = 1
       }
     },
     yearMask(event) {
-      console.log(event);
       if(event.keyCode === 32 || (this.year && this.year.length >= 4)) {
         event.preventDefault();
       }

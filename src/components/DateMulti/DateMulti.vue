@@ -18,7 +18,7 @@
         :disabled="disabled"
         @focus="focus = true"
         @keypress="monthMask"
-        @keyup="mask($event,'month')">
+        @keyup.delete="mask($event,'month')">
       <span class="k__date__multi__slash"/>
       <input
         id="day"
@@ -30,7 +30,7 @@
         :disabled="disabled"
         @focus="focus = true"
         @keypress="dayMask"
-        @keyup="mask($event,'month')">
+        @keyup.delete="mask($event,'month')">
       <span class="k__date__multi__slash"/>
       <input
         id="year"
@@ -42,7 +42,7 @@
         :disabled="disabled"
         @focus="focus = true"
         @keypress="yearMask"
-        @keyup="mask($event,'day')">
+        @keyup.delete="mask($event,'day')">
     </div>
   </fieldset>
     <span class="k__date__multi__error" v-if="isFuture && isComplete">
