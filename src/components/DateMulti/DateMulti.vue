@@ -46,13 +46,13 @@
     </div>
   </fieldset>
     <span class="k__date__multi__error" v-if="isFuture && isComplete">
-      Please check if you were born in the future.
+      {{ futureDateError }}
     </span>
     <span class="k__date__multi__error" v-else-if="isTooOld && isComplete">
-      Please check the date of birth.
+      {{ oldDateError }}
     </span>
     <span class="k__date__multi__error" v-else-if="(!dateValid && isComplete) || (!dateValid && touched)">
-      Please enter a valid date
+      {{ inValidDateError }}
     </span>
 </div>
 </template>
