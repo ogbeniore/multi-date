@@ -28,6 +28,10 @@ export default {
       type: Boolean,
       default: false
     },
+    dataNeuroAttribute: {
+      type: String,
+      default: '',
+    },
     futureDateError: {
       type: String,
       default: 'Please check if you were born in the future.'
