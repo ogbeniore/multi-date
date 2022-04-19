@@ -27,6 +27,18 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    futureDateError: {
+      type: String,
+      default: 'Please check if you were born in the future.'
+    },
+    oldDateError: {
+      type: String,
+      default: 'Please check the date of birth.'
+    },
+    inValidDateError: {
+      type: String,
+      default: 'Please enter a valid date'
     }
   },
   watch: {
