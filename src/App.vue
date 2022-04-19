@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <k-date-multi placeholder="Date of Birth" v-model="dob" />
+    <k-date-multi placeholder="Date of Birth" v-model="dob" data-neuro-attribute="date_of_birth" />
   </div>
 </template>
 
