@@ -189,7 +189,6 @@ export default {
     isNotLegalAge() {
       const { fullDate } = this,
         difference = moment().diff(moment(fullDate), 'years')
-        console.log('difference', {difference, fullDate});
       return difference < this.age
     },
     hasError() {
