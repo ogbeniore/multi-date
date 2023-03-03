@@ -1,6 +1,6 @@
 {
   "name": "vue-date-of-birth-multi",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -45,5 +45,16 @@
     "public/*",
     "*.json",
     "*.js"
-  ]
+  ],
+  "description": "## Project setup ``` npm install ```",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ogbeniore/multi-date.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ogbeniore/multi-date/issues"
+  },
+  "homepage": "https://github.com/ogbeniore/multi-date#readme"
 }
