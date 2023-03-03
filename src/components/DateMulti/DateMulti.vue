@@ -4,7 +4,7 @@
     id="dob"
     class="k__date__multi__fieldset"
     v-click-outside="handleClickOutside"
-    :class="{'active': isDirty, 'valid': dateValid, 'error': (!dateValid && touched) || (!dateValid && isComplete) || isFuture || isTooOld}"
+    :class="{'active': isDirty, 'valid': dateValid, 'error': (!dateValid && touched) || (!dateValid && isComplete) || isFuture || isTooOld || isNotLegalAge}"
     @click="focusInput">
     <label>{{placeholder}}</label>
     <div class="k__date__multi__group">
@@ -56,6 +56,9 @@
     </span>
     <span class="k__date__multi__error" v-else-if="isTooOld && isComplete">
       {{ oldDateError }}
+    </span>
+    <span class="k__date__multi__error" v-else-if="isNotLegalAge && isComplete">
+      {{ legalAgeError }}
     </span>
     <span class="k__date__multi__error" v-else-if="(!dateValid && isComplete) || (!dateValid && touched)">
       {{ inValidDateError }}
