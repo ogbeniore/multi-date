@@ -16,6 +16,10 @@ export default {
       type: null,
       default: ""
     },
+    age: {
+      type: Number,
+      default: 18
+    },
     placeholder: {
       type: String,
       default: ""
@@ -39,6 +43,10 @@ export default {
     oldDateError: {
       type: String,
       default: 'Please check the date of birth.'
+    },
+    legalAgeError: {
+      type: String,
+      default: 'You must be older than 18 years to apply.'
     },
     inValidDateError: {
       type: String,
@@ -178,9 +186,14 @@ export default {
         difference = moment().diff(moment(fullDate), 'years')
       return difference > 100
     },
+    isNotLegalAge() {
+      const { fullDate } = this,
+        difference = moment().diff(moment(fullDate), 'years')
+      return difference < this.age
+    },
     hasError() {
-      const { dateValid, touched, isComplete, isFuture, isTooOld } = this
-      return (!dateValid && touched) || (!dateValid && isComplete) || isFuture || isTooOld
+      const { dateValid, touched, isComplete, isFuture, isTooOld, isNotLegalAge } = this
+      return (!dateValid && touched) || (!dateValid && isComplete) || isFuture || isTooOld || isNotLegalAge
     },
     innerValue: {
       get() {
